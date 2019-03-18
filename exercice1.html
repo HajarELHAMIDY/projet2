@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Page Title</title>
+    <style>
+        #Ligne,#Colone{
+            text-align: right;
+            padding: 4px 6px;
+            margin : 4px;
+        }
+    </style>
+  
+</head>
+<body>
+    
+            <label for="pseudo">Lignes : </label>
+            <input type="text" id="Ligne" />
+            <br>
+            <label for="pseudo">Colonnes : </label>
+            <input type="text" id="Colone" >
+            <br>
+            <br>
+            <button onclick="afficher()">Afficher</button>
+            <div id="out"></div>
+ 
+    </div>
+    <script>
+        var color="pink";//dans le console on peut changer les  couleurs
+        // on test chaque chose 
+        function makeTable(l,c){
+            var table='<table border="1" width=""100%>'
+                for(var i=0;i<l;i++){
+                    table+="<tr>";
+                        for(var j=0;j<c;j++){
+                            table+= "<td onmousemove='colorer(this)'>"+"Ligne "+i+" Colone "+j+"</td>";
+                        }
+                    table+="</tr>" ;  
+                }
+
+                table+="</table>"
+                return table;
+        }
+        function colorer(td){
+            td.style.backgroundColor=color;
+
+        }
+        function afficher(){
+
+            var l=document.querySelector("#Ligne").value;
+            var c=document.querySelector("#Colone").value;
+           document.querySelector("#out").innerHTML=makeTable(l,c);
+         
+          
+        }
+    </script>
+    
+</body>
+</html>
